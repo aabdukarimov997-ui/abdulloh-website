@@ -1,3 +1,0 @@
-[phases.setup]
-nixPkgs = ["nodejs_22", "openssl", "openssl.dev", "bun"]
-aptPkgs = ["openssl", "libssl3"]
