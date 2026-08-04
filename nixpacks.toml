@@ -1,2 +1,2 @@
 [phases.setup]
-nixPkgs = ["openssl", "openssl.dev", "libcrypto3"]
+nixPkgs = ["openssl", "openssl.dev"]
