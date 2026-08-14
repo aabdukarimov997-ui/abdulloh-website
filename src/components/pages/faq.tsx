@@ -17,6 +17,7 @@ import Link from 'next/link';
 import { GlassCard } from '@/components/shared/glass-card';
 import { AnimatedSection } from '@/components/shared/animated-section';
 import { SectionHeading } from '@/components/shared/section-heading';
+import { TradingHeroDecor } from '@/components/shared/trading-decor';
 import { Button } from '@/components/ui/button';
 import {
   Accordion,
@@ -96,7 +97,7 @@ export default function FAQPage() {
     <div className="min-h-screen">
       {/* Hero */}
       <section className="relative pt-32 pb-12 px-4 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 bg-glow pointer-events-none" />
+        <TradingHeroDecor variant="faq" className="-z-10" />
         <div className="max-w-4xl mx-auto text-center relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

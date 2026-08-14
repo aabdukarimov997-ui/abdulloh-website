@@ -1,10 +1,11 @@
 'use client';
 
+import { Instagram, Youtube, Send } from 'lucide-react';
 import { Logo } from '@/components/shared/logo';
 import { TelegramButtons } from '@/components/shared/telegram-buttons';
 import { Separator } from '@/components/ui/separator';
 import { useNavigationStore } from '@/store';
-import { SITE, NAV_ITEMS, TELEGRAM } from '@/lib/constants';
+import { SITE, NAV_ITEMS, TELEGRAM, SOCIAL } from '@/lib/constants';
 import type { PageId } from '@/lib/constants';
 
 const QUICK_LINKS = NAV_ITEMS.map((item) => ({
@@ -108,15 +109,44 @@ export function Footer() {
                 <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-emerald">
                   Connect
                 </h3>
-                <ul className="space-y-2.5">
+                <ul className="space-y-3">
                   <li>
                     <a
-                      href={TELEGRAM.MARKETING_CHANNEL}
+                      href={SOCIAL.INSTAGRAM}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
                     >
-                      Telegram Channel
+                      <span className="flex size-7 items-center justify-center rounded-lg bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white shadow-sm transition-transform duration-300 group-hover:scale-110">
+                        <Instagram className="size-3.5" />
+                      </span>
+                      Instagram
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={SOCIAL.YOUTUBE}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      <span className="flex size-7 items-center justify-center rounded-lg bg-[#ff0000] text-white shadow-sm transition-transform duration-300 group-hover:scale-110">
+                        <Youtube className="size-3.5" />
+                      </span>
+                      YouTube
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={SOCIAL.TELEGRAM}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      <span className="flex size-7 items-center justify-center rounded-lg bg-[#229ED9] text-white shadow-sm transition-transform duration-300 group-hover:scale-110">
+                        <Send className="size-3.5" />
+                      </span>
+                      Telegram
                     </a>
                   </li>
                   <li>
@@ -124,8 +154,11 @@ export function Footer() {
                       href={TELEGRAM.BOT}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
                     >
+                      <span className="flex size-7 items-center justify-center rounded-lg bg-[#229ED9] text-white shadow-sm transition-transform duration-300 group-hover:scale-110">
+                        <Send className="size-3.5" />
+                      </span>
                       Telegram Bot
                     </a>
                   </li>
@@ -134,8 +167,11 @@ export function Footer() {
                       href={`https://t.me/${TELEGRAM.HELP.replace('@', '')}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
                     >
+                      <span className="flex size-7 items-center justify-center rounded-lg bg-emerald text-emerald-foreground shadow-sm transition-transform duration-300 group-hover:scale-110">
+                        <Send className="size-3.5" />
+                      </span>
                       Support
                     </a>
                   </li>

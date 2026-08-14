@@ -11,9 +11,11 @@ import {
   Send,
   UserPlus,
 } from 'lucide-react';
+import Image from 'next/image';
 import { GlassCard } from '@/components/shared/glass-card';
 import { AnimatedSection } from '@/components/shared/animated-section';
 import { SectionHeading } from '@/components/shared/section-heading';
+import { TradingHeroDecor } from '@/components/shared/trading-decor';
 import { TELEGRAM, SITE } from '@/lib/constants';
 
 const missions = [
@@ -58,16 +60,14 @@ export default function AboutPage() {
     <main className="min-h-screen">
       {/* ── Hero ── */}
       <section className="relative pt-32 pb-20 px-4">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(ellipse_at_center,rgba(192,192,192,0.04)_0%,transparent_70%)]" />
-        </div>
+        <TradingHeroDecor variant="profile" className="-z-10" />
 
         <AnimatedSection className="relative max-w-4xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gradient"
+            className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gradient"
           >
             Biz Haqimizda
           </motion.h1>
@@ -90,17 +90,21 @@ export default function AboutPage() {
           <AnimatedSection delay={0.1}>
             <GlassCard glow className="p-8 sm:p-10">
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8">
-                {/* Avatar */}
+                {/* Avatar — asoschi rasmi */}
                 <motion.div
                   initial={{ scale: 0.8, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-br from-[#e0e0e0] via-[#c0c0c0] to-[#7c7b7b] flex items-center justify-center shadow-lg shadow-silver/10"
+                  className="shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-2 ring-emerald/40 shadow-lg shadow-emerald/10"
                 >
-                  <span className="text-4xl sm:text-5xl font-bold text-[#040303] select-none">
-                    A
-                  </span>
+                  <Image
+                    src="/founder.jpg"
+                    alt={SITE.FOUNDER}
+                    width={112}
+                    height={112}
+                    className="h-full w-full object-cover"
+                  />
                 </motion.div>
 
                 {/* Info */}

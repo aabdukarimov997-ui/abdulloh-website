@@ -27,8 +27,8 @@ export function FloatingTelegram() {
       <motion.div
         animate={{
           boxShadow: [
-            '0 0 0 0 rgba(45, 212, 160, 0.5)',
-            '0 0 0 14px rgba(45, 212, 160, 0)',
+            '0 0 0 0 var(--accent-pulse)',
+            '0 0 0 14px rgba(46, 230, 168, 0)',
           ],
         }}
         transition={{

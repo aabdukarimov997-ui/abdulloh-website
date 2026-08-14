@@ -37,7 +37,7 @@ export function GlassCard({
         hover
           ? {
               scale: 1.02,
-              boxShadow: '0 0 30px rgba(45, 212, 160, 0.1)',
+              boxShadow: '0 0 34px var(--accent-glow-12), inset 0 1px 0 rgba(255,255,255,0.06)',
             }
           : undefined
       }

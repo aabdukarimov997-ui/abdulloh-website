@@ -25,10 +25,9 @@ export function LoadingScreen({ onComplete, className }: LoadingScreenProps) {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
       className={cn(
-        'fixed inset-0 z-[100] flex flex-col items-center justify-center',
+        'fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background',
         className
       )}
-      style={{ backgroundColor: '#040303' }}
     >
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}

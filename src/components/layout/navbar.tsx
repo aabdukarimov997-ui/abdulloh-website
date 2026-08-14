@@ -19,8 +19,10 @@ import {
   Mail,
   type LucideIcon,
 } from 'lucide-react';
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Logo } from '@/components/shared/logo';
+import { ThemeToggle } from '@/components/shared/theme-toggle';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -106,7 +108,7 @@ export function Navbar({ className }: LoadingScreenProps) {
                 {isActive && (
                   <motion.div
                     layoutId="navbar-active"
-                    className="absolute inset-0 rounded-md bg-emerald/10 border border-emerald/20"
+                    className="absolute inset-0 rounded-md bg-gradient-to-r from-emerald/15 via-emerald/10 to-gold/10 border border-emerald/25"
                     transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                   />
                 )}
@@ -117,6 +119,9 @@ export function Navbar({ className }: LoadingScreenProps) {
 
         {/* Right Side */}
         <div className="flex items-center gap-2">
+          {/* Tungi/kunduzgi rejim tugmasi */}
+          <ThemeToggle />
+
           {user ? (
             <>
               <Button
@@ -152,12 +157,32 @@ export function Navbar({ className }: LoadingScreenProps) {
             </Button>
           )}
 
+          {/* Founder avatar — sayt egasi */}
+          <button
+            type="button"
+            onClick={() => navigate('about')}
+            className="group relative hidden sm:block"
+            aria-label="ABDULLOH — sayt asoschisi"
+          >
+            <Image
+              src="/founder.jpg"
+              alt="ABDULLOH — AAA asoschisi"
+              width={36}
+              height={36}
+              priority
+              className="size-9 rounded-full object-cover ring-2 ring-emerald/60 shadow-[0_0_14px_rgba(46,230,168,0.25)] transition-transform duration-300 group-hover:scale-110"
+            />
+            <span className="pointer-events-none absolute right-0 top-full mt-2 whitespace-nowrap rounded-lg border border-glass-border bg-card px-3 py-1.5 text-xs font-medium text-foreground opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100">
+              ABDULLOH <span className="text-emerald">• Asoschi</span>
+            </span>
+          </button>
+
           {/* Telegram Button */}
           <a
             href={TELEGRAM.BOT}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center justify-center size-9 rounded-lg text-muted-foreground hover:text-silver transition-colors hover:bg-white/5"
+            className="hidden sm:inline-flex items-center justify-center size-9 rounded-lg text-[#229ED9] hover:bg-[#229ED9]/10 transition-colors"
             aria-label="Telegram Bot"
           >
             <Send className="size-4" />
@@ -177,13 +202,27 @@ export function Navbar({ className }: LoadingScreenProps) {
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="w-80 bg-[#0a0a09]/95 backdrop-blur-xl border-glass-border p-0"
+              className="w-80 bg-card/95 backdrop-blur-xl border-glass-border p-0"
             >
               <SheetHeader className="p-6 pb-4">
                 <SheetTitle className="flex items-center gap-3 text-foreground">
                   <Logo size="sm" />
                   <span className="text-gradient text-lg font-bold">AAA</span>
                 </SheetTitle>
+                <div className="flex items-center gap-3 pt-3">
+                  <Image
+                    src="/founder.jpg"
+                    alt="ABDULLOH — AAA asoschisi"
+                    width={44}
+                    height={44}
+                    priority
+                    className="size-11 rounded-full object-cover ring-2 ring-emerald/60"
+                  />
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">ABDULLOH</p>
+                    <p className="text-xs font-medium text-emerald">Sayt Asoschisi</p>
+                  </div>
+                </div>
               </SheetHeader>
 
               <Separator className="bg-glass-border" />
@@ -204,8 +243,8 @@ export function Navbar({ className }: LoadingScreenProps) {
                       className={cn(
                         'flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors',
                         isActive
-                          ? 'bg-white/5 text-silver'
-                          : 'text-muted-foreground hover:text-foreground hover:bg-white/[0.03]'
+                          ? 'bg-muted/40 text-silver'
+                          : 'text-muted-foreground hover:text-foreground hover:bg-muted/30'
                       )}
                     >
                       {Icon && <Icon className="size-4 shrink-0" />}
@@ -218,6 +257,13 @@ export function Navbar({ className }: LoadingScreenProps) {
               <Separator className="bg-glass-border" />
 
               <div className="p-4 space-y-2">
+                <div className="flex items-center gap-2 rounded-lg px-3 py-2.5">
+                  <ThemeToggle className="size-9" />
+                  <span className="text-sm font-medium text-muted-foreground">
+                    Tungi / Kunduzgi rejim
+                  </span>
+                </div>
+
                 {user ? (
                   <>
                     <Button
@@ -263,9 +309,9 @@ export function Navbar({ className }: LoadingScreenProps) {
                   href={TELEGRAM.BOT}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-white/[0.03] transition-colors"
+                  className="flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-[#229ED9]/10 transition-colors"
                 >
-                  <Send className="size-4 shrink-0" />
+                  <Send className="size-4 shrink-0 text-[#229ED9]" />
                   Telegram Bot
                 </a>
               </div>

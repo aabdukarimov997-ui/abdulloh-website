@@ -16,6 +16,7 @@ import { GlassCard } from '@/components/shared/glass-card';
 import { AnimatedSection } from '@/components/shared/animated-section';
 import { SectionHeading } from '@/components/shared/section-heading';
 import { TelegramButtons } from '@/components/shared/telegram-buttons';
+import { TradingHeroDecor } from '@/components/shared/trading-decor';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { cn } from '@/lib/utils';
@@ -145,7 +146,7 @@ function PricingCard({
             'w-full rounded-xl text-sm font-semibold',
             glow
               ? 'bg-silver text-silver-foreground hover:bg-silver/90'
-              : 'border border-glass-border text-silver hover:text-white hover:bg-white/5'
+              : 'border border-glass-border text-silver hover:text-foreground hover:bg-muted/40'
           )}
           variant={glow ? 'default' : 'outline'}
         >
@@ -193,14 +194,7 @@ export default function CoursePage() {
   /* ────────── HERO ────────── */
   const hero = (
     <section className="relative px-4 pt-28 pb-16 sm:pt-32 sm:pb-20">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10"
-        style={{
-          background:
-            'radial-gradient(ellipse 60% 50% at 50% 30%, rgba(192,192,192,0.05) 0%, transparent 70%)',
-        }}
-      />
+      <TradingHeroDecor variant="candles" className="-z-10" />
 
       <motion.div
         variants={stagger}
@@ -210,7 +204,7 @@ export default function CoursePage() {
       >
         <motion.h1
           variants={fadeUp}
-          className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-gradient"
+          className="font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-gradient"
         >
           Trading Haqiqati
         </motion.h1>
@@ -332,7 +326,7 @@ export default function CoursePage() {
         <AnimatedSection>
           <GlassCard className="p-6 sm:p-8 h-full">
             <div className="flex items-center gap-3 mb-6">
-              <div className="flex size-10 items-center justify-center rounded-xl bg-white/[0.04] border border-glass-border">
+              <div className="flex size-10 items-center justify-center rounded-xl bg-muted/40 border border-glass-border">
                 <BookOpen className="size-5 text-silver" />
               </div>
               <h3 className="text-xl font-bold text-foreground">
@@ -343,7 +337,7 @@ export default function CoursePage() {
             <ul className="space-y-3">
               {MODULES.map((mod, i) => (
                 <li key={i} className="flex items-start gap-2.5 text-sm">
-                  <span className="flex size-5 shrink-0 items-center justify-center rounded-md bg-white/[0.04] text-xs text-silver font-medium mt-0.5">
+                  <span className="flex size-5 shrink-0 items-center justify-center rounded-md bg-muted/40 text-xs text-silver font-medium mt-0.5">
                     {i + 1}
                   </span>
                   <span className="text-muted-foreground leading-snug">{mod}</span>
@@ -359,7 +353,7 @@ export default function CoursePage() {
           <AnimatedSection delay={0.1}>
             <GlassCard className="p-6 sm:p-8">
               <div className="flex items-center gap-3 mb-6">
-                <div className="flex size-10 items-center justify-center rounded-xl bg-white/[0.04] border border-glass-border">
+                <div className="flex size-10 items-center justify-center rounded-xl bg-muted/40 border border-glass-border">
                   <Users className="size-5 text-silver" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground">
@@ -382,7 +376,7 @@ export default function CoursePage() {
           <AnimatedSection delay={0.2}>
             <GlassCard className="p-6 sm:p-8">
               <div className="flex items-center gap-3 mb-6">
-                <div className="flex size-10 items-center justify-center rounded-xl bg-white/[0.04] border border-glass-border">
+                <div className="flex size-10 items-center justify-center rounded-xl bg-muted/40 border border-glass-border">
                   <MonitorSmartphone className="size-5 text-silver" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground">Talablar</h3>
@@ -417,7 +411,7 @@ export default function CoursePage() {
                   'radial-gradient(ellipse 80% 70% at 50% 50%, rgba(192,192,192,0.04) 0%, transparent 60%)',
               }}
             />
-            <div className="flex size-14 items-center justify-center rounded-2xl bg-white/[0.04] border border-glass-border">
+            <div className="flex size-14 items-center justify-center rounded-2xl bg-muted/40 border border-glass-border">
               <Send className="size-7 text-silver" />
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-gradient">

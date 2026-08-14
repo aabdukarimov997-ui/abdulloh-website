@@ -60,3 +60,66 @@ export const useUIStore = create<UIState>((set) => ({
   isSearchOpen: false,
   setSearchOpen: (isSearchOpen) => set({ isSearchOpen }),
 }));
+
+const BG_STORAGE_KEY = 'aaa-background';
+
+function readBackgroundId(): string {
+  if (typeof window === 'undefined') return 'classic';
+  try {
+    return localStorage.getItem(BG_STORAGE_KEY) || 'classic';
+  } catch {
+    return 'classic';
+  }
+}
+
+interface BackgroundState {
+  backgroundId: string;
+  isPickerOpen: boolean;
+  setBackground: (id: string) => void;
+  setPickerOpen: (open: boolean) => void;
+}
+
+export const useBackgroundStore = create<BackgroundState>((set) => ({
+  backgroundId: readBackgroundId(),
+  isPickerOpen: false,
+  setBackground: (id) => {
+    try {
+      localStorage.setItem(BG_STORAGE_KEY, id);
+    } catch {
+      /* ignore */
+    }
+    set({ backgroundId: id });
+  },
+  setPickerOpen: (isPickerOpen) => set({ isPickerOpen }),
+}));
+
+const THEME_STORAGE_KEY = 'aaa-theme';
+
+type ThemeMode = 'system' | 'light' | 'dark';
+
+function readThemeMode(): ThemeMode {
+  if (typeof window === 'undefined') return 'system';
+  try {
+    const v = localStorage.getItem(THEME_STORAGE_KEY);
+    return v === 'light' || v === 'dark' ? v : 'system';
+  } catch {
+    return 'system';
+  }
+}
+
+interface ThemeState {
+  theme: ThemeMode;
+  setTheme: (mode: ThemeMode) => void;
+}
+
+export const useThemeStore = create<ThemeState>((set) => ({
+  theme: readThemeMode(),
+  setTheme: (theme) => {
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, theme);
+    } catch {
+      /* ignore */
+    }
+    set({ theme });
+  },
+}));

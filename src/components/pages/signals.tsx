@@ -15,6 +15,7 @@ import {
 import { GlassCard } from '@/components/shared/glass-card';
 import { AnimatedSection } from '@/components/shared/animated-section';
 import { SectionHeading } from '@/components/shared/section-heading';
+import { TradingHeroDecor } from '@/components/shared/trading-decor';
 import { TelegramButtons } from '@/components/shared/telegram-buttons';
 import { TELEGRAM } from '@/lib/constants';
 import { Button } from '@/components/ui/button';
@@ -241,7 +242,7 @@ export default function SignalsPage() {
     <main className="min-h-screen">
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 px-4 sm:px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-glow pointer-events-none" />
+        <TradingHeroDecor variant="signals" className="-z-10" />
         <div className="max-w-4xl mx-auto text-center relative">
           <AnimatedSection>
             <div className="inline-flex items-center gap-2 glass-card px-4 py-1.5 rounded-full mb-6">
@@ -253,7 +254,7 @@ export default function SignalsPage() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.1}>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gradient mb-4">
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gradient mb-4">
               AT_analysis
             </h1>
           </AnimatedSection>

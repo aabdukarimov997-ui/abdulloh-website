@@ -1,10 +1,15 @@
 :81 {
+	# Xavfsizlik: XTransformPort faqat ruxsat etilgan portlarga o'tkaziladi (SSRF himoyasi).
+	# Boshqa portlar so'rovda bo'lsa — 403 qaytariladi.
 	@transform_port_query {
 		query XTransformPort=*
 	}
 
-	handle @transform_port_query {
-		reverse_proxy localhost:{query.XTransformPort} {
+	@port3000 {
+		query XTransformPort=3000
+	}
+	handle @port3000 {
+		reverse_proxy localhost:3000 {
 			header_up Host {host}
 			header_up X-Forwarded-For {remote_host}
 			header_up X-Forwarded-Proto {scheme}
@@ -12,6 +17,36 @@
 		}
 	}
 
+	@port3001 {
+		query XTransformPort=3001
+	}
+	handle @port3001 {
+		reverse_proxy localhost:3001 {
+			header_up Host {host}
+			header_up X-Forwarded-For {remote_host}
+			header_up X-Forwarded-Proto {scheme}
+			header_up X-Real-IP {remote_host}
+		}
+	}
+
+	@port20128 {
+		query XTransformPort=20128
+	}
+	handle @port20128 {
+		reverse_proxy localhost:20128 {
+			header_up Host {host}
+			header_up X-Forwarded-For {remote_host}
+			header_up X-Forwarded-Proto {scheme}
+			header_up X-Real-IP {remote_host}
+		}
+	}
+
+	# Ruxsat etilmagan port — blok
+	handle @transform_port_query {
+		respond "Forbidden" 403
+	}
+
+	# Oddiy trafik — asosiy sayt
 	handle {
 		reverse_proxy localhost:3000 {
 			header_up Host {host}

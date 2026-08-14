@@ -20,6 +20,7 @@ import {
 import { toast } from 'sonner';
 import { GlassCard } from '@/components/shared/glass-card';
 import { AnimatedSection } from '@/components/shared/animated-section';
+import { TradingHeroDecor } from '@/components/shared/trading-decor';
 import { useNavigationStore, useAuthStore } from '@/store';
 import { TELEGRAM } from '@/lib/constants';
 import { Button } from '@/components/ui/button';
@@ -149,7 +150,8 @@ export default function DashboardPage() {
   return (
     <main className="min-h-screen pb-16">
       {/* ── Welcome Section ── */}
-      <section className="pt-28 sm:pt-32 pb-8 px-4">
+      <section className="relative pt-28 sm:pt-32 pb-8 px-4">
+        <TradingHeroDecor variant="terminal" className="-z-10" />
         <div className="max-w-6xl mx-auto">
           <AnimatedSection>
             <motion.div
@@ -157,7 +159,7 @@ export default function DashboardPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-gradient">
+              <h1 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-gradient">
                 Xush kelibsiz, {user.name}!
               </h1>
               <p className="mt-2 text-muted-foreground">

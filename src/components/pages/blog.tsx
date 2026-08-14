@@ -9,12 +9,12 @@ import {
   Send,
   AlertCircle,
   Loader2,
-  ImageIcon,
 } from 'lucide-react';
 import Link from 'next/link';
 import { GlassCard } from '@/components/shared/glass-card';
 import { AnimatedSection } from '@/components/shared/animated-section';
 import { SectionHeading } from '@/components/shared/section-heading';
+import { TradingHeroDecor, TradingCover } from '@/components/shared/trading-decor';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -85,9 +85,7 @@ function FeaturedPostCard({ post }: { post: BlogPost }) {
             className="w-full h-full object-cover"
           />
         ) : (
-          <div className="w-full h-full bg-gradient-to-br from-silver/10 via-silver/5 to-transparent flex items-center justify-center">
-            <Newspaper className="w-16 h-16 text-silver/20" />
-          </div>
+          <TradingCover category={category} className="w-full h-full" />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
         <div className="absolute top-4 left-4">
@@ -142,9 +140,7 @@ function BlogPostCard({
             className="w-full h-full object-cover"
           />
         ) : (
-          <div className="w-full h-full bg-gradient-to-br from-silver/10 via-silver/5 to-transparent flex items-center justify-center">
-            <ImageIcon className="w-12 h-12 text-silver/15" />
-          </div>
+          <TradingCover category={category} className="w-full h-full" />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
         <div className="absolute top-3 left-3">
@@ -241,7 +237,7 @@ export default function BlogPage() {
     <div className="min-h-screen">
       {/* Hero */}
       <section className="relative pt-32 pb-12 px-4 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 bg-glow pointer-events-none" />
+        <TradingHeroDecor variant="paper" className="-z-10" />
         <div className="max-w-7xl mx-auto text-center relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

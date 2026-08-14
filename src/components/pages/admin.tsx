@@ -173,7 +173,7 @@ function SidebarContent({
                   className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors ${
                     isActive
                       ? 'bg-silver/10 text-silver font-medium'
-                      : 'text-muted-foreground hover:bg-white/[0.04] hover:text-foreground'
+                      : 'text-muted-foreground hover:bg-muted/40 hover:text-foreground'
                   }`}
                 >
                   <Icon className="h-4 w-4 shrink-0" />
@@ -189,7 +189,7 @@ function SidebarContent({
       <div className="border-t border-glass-border p-3 space-y-1">
         <button
           onClick={() => nav('home')}
-          className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:bg-white/[0.04] hover:text-foreground transition-colors"
+          className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:bg-muted/40 hover:text-foreground transition-colors"
         >
           <ArrowLeft className="h-4 w-4" />
           Asosiy sahifaga qaytish
@@ -302,7 +302,7 @@ function AdminUsers() {
               placeholder="Ism yoki email bo'yicha qidirish..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="pl-9 bg-white/[0.03] border-glass-border"
+              className="pl-9 bg-muted/30 border-glass-border"
             />
           </div>
         </div>
@@ -327,7 +327,7 @@ function AdminUsers() {
                 </TableRow>
               )}
               {filtered.map((u) => (
-                <TableRow key={u.id} className="border-glass-border hover:bg-white/[0.02]">
+                <TableRow key={u.id} className="border-glass-border hover:bg-muted/20">
                   <TableCell className="font-medium text-foreground">{u.name || '—'}</TableCell>
                   <TableCell className="text-muted-foreground">{u.email}</TableCell>
                   <TableCell>
@@ -336,7 +336,7 @@ function AdminUsers() {
                       className={
                         u.role === 'ADMIN'
                           ? 'bg-silver/20 text-silver border-silver/30'
-                          : 'bg-white/[0.05] text-muted-foreground border-glass-border'
+                          : 'bg-muted/50 text-muted-foreground border-glass-border'
                       }
                     >
                       {u.role}
@@ -478,7 +478,7 @@ function AdminCourses() {
             <Input
               value={form.name}
               onChange={(e) => upd('name', e.target.value)}
-              className="bg-white/[0.03] border-glass-border"
+              className="bg-muted/30 border-glass-border"
             />
           </div>
           <div className="space-y-2">
@@ -487,7 +487,7 @@ function AdminCourses() {
               value={form.description}
               onChange={(e) => upd('description', e.target.value)}
               rows={4}
-              className="bg-white/[0.03] border-glass-border"
+              className="bg-muted/30 border-glass-border"
             />
           </div>
 
@@ -554,7 +554,7 @@ function TierForm({
             type="number"
             value={price || ''}
             onChange={(e) => onPriceChange(Number(e.target.value) || 0)}
-            className="bg-white/[0.03] border-glass-border"
+            className="bg-muted/30 border-glass-border"
           />
         </div>
         <div className="space-y-1">
@@ -563,7 +563,7 @@ function TierForm({
             value={features}
             onChange={(e) => onFeaturesChange(e.target.value)}
             placeholder="Xususiyat 1, Xususiyat 2, ..."
-            className="bg-white/[0.03] border-glass-border"
+            className="bg-muted/30 border-glass-border"
           />
         </div>
       </div>
@@ -665,7 +665,7 @@ function AdminSignals() {
             <Input
               value={form.name}
               onChange={(e) => upd('name', e.target.value)}
-              className="bg-white/[0.03] border-glass-border"
+              className="bg-muted/30 border-glass-border"
             />
           </div>
           <div className="space-y-2">
@@ -674,7 +674,7 @@ function AdminSignals() {
               value={form.description}
               onChange={(e) => upd('description', e.target.value)}
               rows={4}
-              className="bg-white/[0.03] border-glass-border"
+              className="bg-muted/30 border-glass-border"
             />
           </div>
 
@@ -859,7 +859,7 @@ function AdminBlog() {
                 </TableRow>
               )}
               {posts.map((post) => (
-                <TableRow key={post.id} className="border-glass-border hover:bg-white/[0.02]">
+                <TableRow key={post.id} className="border-glass-border hover:bg-muted/20">
                   <TableCell className="font-medium text-foreground max-w-[200px] truncate">
                     {post.title}
                   </TableCell>
@@ -910,7 +910,7 @@ function AdminBlog() {
 
       {/* Create / Edit Dialog */}
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-        <DialogContent className="bg-[#0a0a09] border-glass-border max-h-[85vh] overflow-y-auto scrollbar-thin">
+        <DialogContent className="bg-card border-glass-border max-h-[85vh] overflow-y-auto scrollbar-thin">
           <DialogHeader>
             <DialogTitle className="text-foreground">
               {editing ? 'Maqolani tahrirlash' : 'Yangi maqola'}
@@ -927,7 +927,7 @@ function AdminBlog() {
                     setForm((p) => ({ ...p, slug: generateSlug(e.target.value) }));
                   }
                 }}
-                className="bg-white/[0.03] border-glass-border"
+                className="bg-muted/30 border-glass-border"
               />
             </div>
             <div className="space-y-2">
@@ -935,7 +935,7 @@ function AdminBlog() {
               <Input
                 value={form.slug}
                 onChange={(e) => setForm((p) => ({ ...p, slug: e.target.value }))}
-                className="bg-white/[0.03] border-glass-border"
+                className="bg-muted/30 border-glass-border"
               />
             </div>
             <div className="space-y-2">
@@ -944,7 +944,7 @@ function AdminBlog() {
                 value={form.excerpt}
                 onChange={(e) => setForm((p) => ({ ...p, excerpt: e.target.value }))}
                 rows={2}
-                className="bg-white/[0.03] border-glass-border"
+                className="bg-muted/30 border-glass-border"
               />
             </div>
             <div className="space-y-2">
@@ -953,7 +953,7 @@ function AdminBlog() {
                 value={form.content}
                 onChange={(e) => setForm((p) => ({ ...p, content: e.target.value }))}
                 rows={8}
-                className="bg-white/[0.03] border-glass-border"
+                className="bg-muted/30 border-glass-border"
               />
             </div>
             <div className="flex items-center gap-3">
@@ -986,7 +986,7 @@ function AdminBlog() {
 
       {/* Delete Confirmation */}
       <AlertDialog open={!!deleteId} onOpenChange={() => setDeleteId(null)}>
-        <AlertDialogContent className="bg-[#0a0a09] border-glass-border">
+        <AlertDialogContent className="bg-card border-glass-border">
           <AlertDialogHeader>
             <AlertDialogTitle className="text-foreground">
               Maqolani o'chirish
@@ -1069,7 +1069,7 @@ function AdminSEO() {
               value={settings.site_title}
               onChange={(e) => setSettings((p) => ({ ...p, site_title: e.target.value }))}
               placeholder="AAA Crypto Trading Academy"
-              className="bg-white/[0.03] border-glass-border"
+              className="bg-muted/30 border-glass-border"
             />
           </div>
           <div className="space-y-2">
@@ -1081,7 +1081,7 @@ function AdminSEO() {
               }
               rows={3}
               placeholder="Premium Crypto Trading Academy va Signal Platformasi"
-              className="bg-white/[0.03] border-glass-border"
+              className="bg-muted/30 border-glass-border"
             />
           </div>
           <div className="space-y-2">
@@ -1090,7 +1090,7 @@ function AdminSEO() {
               value={settings.og_image}
               onChange={(e) => setSettings((p) => ({ ...p, og_image: e.target.value }))}
               placeholder="https://example.com/og-image.jpg"
-              className="bg-white/[0.03] border-glass-border"
+              className="bg-muted/30 border-glass-border"
             />
           </div>
           <div className="pt-2">
@@ -1198,7 +1198,7 @@ function AdminAnalytics() {
           const Icon = c.icon;
           return (
             <AdminGlassCard key={c.label} className="flex items-center gap-4">
-              <div className="h-12 w-12 rounded-xl bg-white/[0.04] flex items-center justify-center shrink-0">
+              <div className="h-12 w-12 rounded-xl bg-muted/40 flex items-center justify-center shrink-0">
                 <Icon className={`h-6 w-6 ${c.color}`} />
               </div>
               <div>
@@ -1220,7 +1220,7 @@ function AdminAnalytics() {
               {Object.entries(data.pageViewsByType).map(([type, count]) => (
                 <div key={type} className="flex items-center justify-between py-1">
                   <span className="text-sm text-muted-foreground">{type}</span>
-                  <Badge variant="secondary" className="bg-white/[0.05] text-foreground border-glass-border">
+                  <Badge variant="secondary" className="bg-muted/50 text-foreground border-glass-border">
                     {count}
                   </Badge>
                 </div>
@@ -1272,10 +1272,10 @@ function AdminPayments() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
         <h2 className="text-xl font-bold text-foreground">To&apos;lovlar</h2>
         <Select value={statusFilter} onValueChange={setStatusFilter}>
-          <SelectTrigger className="w-full sm:w-44 bg-white/[0.03] border-glass-border">
+          <SelectTrigger className="w-full sm:w-44 bg-muted/30 border-glass-border">
             <SelectValue />
           </SelectTrigger>
-          <SelectContent className="bg-[#0a0a09] border-glass-border">
+          <SelectContent className="bg-card border-glass-border">
             <SelectItem value="ALL">Barchasi</SelectItem>
             <SelectItem value="PENDING">Kutilmoqda</SelectItem>
             <SelectItem value="COMPLETED">Tugallangan</SelectItem>
@@ -1306,7 +1306,7 @@ function AdminPayments() {
                 </TableRow>
               )}
               {payments.map((p) => (
-                <TableRow key={p.id} className="border-glass-border hover:bg-white/[0.02]">
+                <TableRow key={p.id} className="border-glass-border hover:bg-muted/20">
                   <TableCell className="text-foreground">
                     {p.user?.name || p.user?.email || '—'}
                   </TableCell>
@@ -1318,7 +1318,7 @@ function AdminPayments() {
                   <TableCell>
                     <Badge
                       variant="secondary"
-                      className={statusColor[p.status] ?? 'bg-white/[0.05] text-muted-foreground'}
+                      className={statusColor[p.status] ?? 'bg-muted/50 text-muted-foreground'}
                     >
                       {p.status}
                     </Badge>
@@ -1382,7 +1382,7 @@ function AdminReferrals() {
                 </TableRow>
               )}
               {referrals.map((r) => (
-                <TableRow key={r.id} className="border-glass-border hover:bg-white/[0.02]">
+                <TableRow key={r.id} className="border-glass-border hover:bg-muted/20">
                   <TableCell className="text-foreground">
                     {r.referrer?.name || r.referrer?.email || '—'}
                   </TableCell>
@@ -1540,7 +1540,7 @@ function AdminBanners() {
                 </TableRow>
               )}
               {banners.map((b) => (
-                <TableRow key={b.id} className="border-glass-border hover:bg-white/[0.02]">
+                <TableRow key={b.id} className="border-glass-border hover:bg-muted/20">
                   <TableCell className="font-medium text-foreground">{b.title || '—'}</TableCell>
                   <TableCell className="text-muted-foreground max-w-[150px] truncate">
                     {b.subtitle || '—'}
@@ -1554,7 +1554,7 @@ function AdminBanners() {
                       className={
                         b.isActive
                           ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30'
-                          : 'bg-white/[0.05] text-muted-foreground border-glass-border'
+                          : 'bg-muted/50 text-muted-foreground border-glass-border'
                       }
                     >
                       {b.isActive ? 'Faol' : 'Nofaol'}
@@ -1590,7 +1590,7 @@ function AdminBanners() {
 
       {/* Create / Edit Dialog */}
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-        <DialogContent className="bg-[#0a0a09] border-glass-border max-h-[85vh] overflow-y-auto scrollbar-thin">
+        <DialogContent className="bg-card border-glass-border max-h-[85vh] overflow-y-auto scrollbar-thin">
           <DialogHeader>
             <DialogTitle className="text-foreground">
               {editing ? 'Bannerni tahrirlash' : 'Yangi banner'}
@@ -1602,7 +1602,7 @@ function AdminBanners() {
               <Input
                 value={form.title}
                 onChange={(e) => setForm((p) => ({ ...p, title: e.target.value }))}
-                className="bg-white/[0.03] border-glass-border"
+                className="bg-muted/30 border-glass-border"
               />
             </div>
             <div className="space-y-2">
@@ -1610,7 +1610,7 @@ function AdminBanners() {
               <Input
                 value={form.subtitle}
                 onChange={(e) => setForm((p) => ({ ...p, subtitle: e.target.value }))}
-                className="bg-white/[0.03] border-glass-border"
+                className="bg-muted/30 border-glass-border"
               />
             </div>
             <div className="space-y-2">
@@ -1619,7 +1619,7 @@ function AdminBanners() {
                 value={form.imageUrl}
                 onChange={(e) => setForm((p) => ({ ...p, imageUrl: e.target.value }))}
                 placeholder="https://example.com/banner.jpg"
-                className="bg-white/[0.03] border-glass-border"
+                className="bg-muted/30 border-glass-border"
               />
             </div>
             <div className="space-y-2">
@@ -1627,7 +1627,7 @@ function AdminBanners() {
               <Input
                 value={form.link}
                 onChange={(e) => setForm((p) => ({ ...p, link: e.target.value }))}
-                className="bg-white/[0.03] border-glass-border"
+                className="bg-muted/30 border-glass-border"
               />
             </div>
             <div className="space-y-2">
@@ -1636,7 +1636,7 @@ function AdminBanners() {
                 type="number"
                 value={form.order}
                 onChange={(e) => setForm((p) => ({ ...p, order: Number(e.target.value) || 0 }))}
-                className="bg-white/[0.03] border-glass-border"
+                className="bg-muted/30 border-glass-border"
               />
             </div>
             <div className="flex items-center gap-3">
@@ -1669,7 +1669,7 @@ function AdminBanners() {
 
       {/* Delete Confirmation */}
       <AlertDialog open={!!deleteId} onOpenChange={() => setDeleteId(null)}>
-        <AlertDialogContent className="bg-[#0a0a09] border-glass-border">
+        <AlertDialogContent className="bg-card border-glass-border">
           <AlertDialogHeader>
             <AlertDialogTitle className="text-foreground">
               Bannerni o&apos;chirish
@@ -1935,7 +1935,7 @@ function AdminCoupons() {
                 </TableRow>
               )}
               {coupons.map((c) => (
-                <TableRow key={c.id} className="border-glass-border hover:bg-white/[0.02]">
+                <TableRow key={c.id} className="border-glass-border hover:bg-muted/20">
                   <TableCell className="font-mono font-medium text-silver">{c.code}</TableCell>
                   <TableCell className="text-foreground">{c.discountPercent}%</TableCell>
                   <TableCell className="text-muted-foreground text-sm">
@@ -1950,7 +1950,7 @@ function AdminCoupons() {
                       className={
                         c.isActive
                           ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30'
-                          : 'bg-white/[0.05] text-muted-foreground border-glass-border'
+                          : 'bg-muted/50 text-muted-foreground border-glass-border'
                       }
                     >
                       {c.isActive ? 'Faol' : 'Nofaol'}
@@ -1985,7 +1985,7 @@ function AdminCoupons() {
 
       {/* Create / Edit Dialog */}
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-        <DialogContent className="bg-[#0a0a09] border-glass-border max-h-[85vh] overflow-y-auto scrollbar-thin">
+        <DialogContent className="bg-card border-glass-border max-h-[85vh] overflow-y-auto scrollbar-thin">
           <DialogHeader>
             <DialogTitle className="text-foreground">
               {editing ? 'Kuponni tahrirlash' : 'Yangi kupon'}
@@ -1998,7 +1998,7 @@ function AdminCoupons() {
                 value={form.code}
                 onChange={(e) => setForm((p) => ({ ...p, code: e.target.value.toUpperCase() }))}
                 placeholder="SAVE20"
-                className="bg-white/[0.03] border-glass-border font-mono"
+                className="bg-muted/30 border-glass-border font-mono"
               />
             </div>
             <div className="space-y-2">
@@ -2011,7 +2011,7 @@ function AdminCoupons() {
                 onChange={(e) =>
                   setForm((p) => ({ ...p, discountPercent: Number(e.target.value) || 0 }))
                 }
-                className="bg-white/[0.03] border-glass-border"
+                className="bg-muted/30 border-glass-border"
               />
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
@@ -2021,7 +2021,7 @@ function AdminCoupons() {
                   type="date"
                   value={form.validFrom}
                   onChange={(e) => setForm((p) => ({ ...p, validFrom: e.target.value }))}
-                  className="bg-white/[0.03] border-glass-border"
+                  className="bg-muted/30 border-glass-border"
                 />
               </div>
               <div className="space-y-2">
@@ -2030,7 +2030,7 @@ function AdminCoupons() {
                   type="date"
                   value={form.validTo}
                   onChange={(e) => setForm((p) => ({ ...p, validTo: e.target.value }))}
-                  className="bg-white/[0.03] border-glass-border"
+                  className="bg-muted/30 border-glass-border"
                 />
               </div>
             </div>
@@ -2043,7 +2043,7 @@ function AdminCoupons() {
                 onChange={(e) =>
                   setForm((p) => ({ ...p, maxUses: Number(e.target.value) || 1 }))
                 }
-                className="bg-white/[0.03] border-glass-border"
+                className="bg-muted/30 border-glass-border"
               />
             </div>
             <div className="flex items-center gap-3">
@@ -2076,7 +2076,7 @@ function AdminCoupons() {
 
       {/* Delete Confirmation */}
       <AlertDialog open={!!deleteId} onOpenChange={() => setDeleteId(null)}>
-        <AlertDialogContent className="bg-[#0a0a09] border-glass-border">
+        <AlertDialogContent className="bg-card border-glass-border">
           <AlertDialogHeader>
             <AlertDialogTitle className="text-foreground">
               Kuponni o&apos;chirish

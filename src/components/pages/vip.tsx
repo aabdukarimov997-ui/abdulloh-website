@@ -19,6 +19,7 @@ import { GlassCard } from '@/components/shared/glass-card';
 import { AnimatedSection } from '@/components/shared/animated-section';
 import { SectionHeading } from '@/components/shared/section-heading';
 import { TelegramButtons } from '@/components/shared/telegram-buttons';
+import { TradingHeroDecor } from '@/components/shared/trading-decor';
 import { TELEGRAM } from '@/lib/constants';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -79,7 +80,7 @@ export default function VipPage() {
     <main className="min-h-screen">
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 px-4 sm:px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-glow pointer-events-none" />
+        <TradingHeroDecor variant="gold" className="-z-10" />
         {/* Decorative floating elements */}
         <motion.div
           animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
@@ -108,7 +109,7 @@ export default function VipPage() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.1}>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-gradient-silver mb-4">
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-gradient-silver mb-4">
               VIP
             </h1>
           </AnimatedSection>
