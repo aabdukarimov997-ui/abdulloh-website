@@ -7,7 +7,6 @@ const SEEN_KEY = 'aaa-premium-intro-seen';
 
 export function PremiumTradingIntro() {
   const [visible, setVisible] = useState(false);
-  const [firstVisit, setFirstVisit] = useState(true);
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
@@ -19,7 +18,6 @@ export function PremiumTradingIntro() {
       // Private browsing may block storage; the intro still works for this visit.
     }
 
-    setFirstVisit(!seen);
     setVisible(true);
 
     const duration = reduceMotion ? 650 : seen ? 1850 : 4700;
