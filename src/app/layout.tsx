@@ -20,6 +20,7 @@ import { Footer } from "@/components/layout/footer";
 import { FloatingTelegram } from "@/components/layout/floating-telegram";
 import { SiteBackground } from "@/components/shared/site-background";
 import { BackgroundSwitcher } from "@/components/shared/background-switcher";
+import { PremiumTradingIntro } from "@/components/layout/premium-trading-intro";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -119,6 +120,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${sora.variable} ${unbounded.variable} ${outfit.variable} ${syne.variable} ${playfair.variable} ${bebas.variable} ${fraunces.variable} ${oswald.variable} ${cormorant.variable} antialiased bg-background text-foreground min-h-screen`}
       >
+        <PremiumTradingIntro />
         <SiteBackground />
         <Navbar />
         <main className="min-h-screen pt-16">
